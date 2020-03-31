@@ -115,16 +115,14 @@ public:
 		}
 
 		alcMakeContextCurrent(m_context);
-		alGenBuffers(MAX_CACHE, m_buffer);
-		alGenSources(1, &m_source);
 
-		if (wyCheckALError("CGEALPlayBack::init"))
+		if (wyCheckALError("CGEALPlayBack::init - alcMakeContextCurrent"))
 			return false;
 
 		alGenSources(1, &m_source);
 		alGenBuffers(MAX_CACHE, m_buffer);
 
-		if (wyCheckALError("CGEALPlayBack::init"))
+		if (wyCheckALError("CGEALPlayBack::init - source"))
 			return false;
 
 		for (auto buf : m_buffer)
